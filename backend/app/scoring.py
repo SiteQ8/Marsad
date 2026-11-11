@@ -2,9 +2,9 @@
 Composite (contextual) risk scoring.
 
 Raw CVSS answers "how bad is this vuln in the abstract". Enterprises need
-"how bad is this vuln *here*" — a critical CVE on an internet-facing crown-jewel
+"how bad is this vuln *here*", a critical CVE on an internet-facing crown-jewel
 asset outranks the same CVE on an isolated dev box. Marsad folds asset context
-into a 0–100 contextual risk score used for prioritisation and dashboards.
+into a 0-100 contextual risk score used for prioritisation and dashboards.
 """
 from __future__ import annotations
 import datetime as dt
@@ -18,7 +18,7 @@ _CRIT_WEIGHT = {1: 0.7, 2: 1.0, 3: 1.3, 4: 1.6}
 
 
 def contextual_risk(cvss_score: float, criticality: int, internet_facing: bool) -> float:
-    """Return a 0–100 contextual risk score."""
+    """Return a 0-100 contextual risk score."""
     base = (cvss_score / 10.0) * 100.0
     score = base * _CRIT_WEIGHT.get(criticality, 1.0)
     if internet_facing:

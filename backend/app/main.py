@@ -1,4 +1,4 @@
-"""Marsad API — application entrypoint."""
+"""Marsad API: application entrypoint."""
 from __future__ import annotations
 from contextlib import asynccontextmanager
 

@@ -52,7 +52,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     return user
 
 
-# Role hierarchy — a higher role satisfies any requirement at or below it.
+# Role hierarchy: a higher role satisfies any requirement at or below it.
 _RANK = {Role.viewer: 0, Role.analyst: 1, Role.admin: 2}
 
 

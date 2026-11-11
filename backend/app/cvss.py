@@ -49,7 +49,7 @@ def _roundup(value: float) -> float:
 
 
 def base_score(vector: str) -> float:
-    """Compute the CVSS v3.1 base score (0.0–10.0) from a vector string."""
+    """Compute the CVSS v3.1 base score (0.0-10.0) from a vector string."""
     m = parse_vector(vector)
     scope_changed = m["S"] == "C"
     pr_table = _PR_CHANGED if scope_changed else _PR_UNCHANGED

@@ -1,9 +1,9 @@
-"""CVSS v3.1 engine tests — validated against FIRST.org published example scores."""
+"""CVSS v3.1 engine tests: validated against FIRST.org published example scores."""
 import pytest
 
 from app.cvss import base_score, severity_band, parse_vector, CVSSError
 
-# (vector, expected base score) — all independently verifiable on FIRST.org calculator.
+# (vector, expected base score), all independently verifiable on FIRST.org calculator.
 KNOWN = [
     ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", 9.8),   # unauth RCE
     ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H", 10.0),  # scope-changed RCE (Log4Shell-class)

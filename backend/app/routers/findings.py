@@ -118,7 +118,7 @@ async def import_scan(
             created, updated = import_nessus(db, raw, scan)
         else:
             created, updated = import_csv(db, raw, scan)
-    except Exception as e:  # noqa: BLE001 — surface parse errors cleanly
+    except Exception as e:  # noqa: BLE001 - surface parse errors cleanly
         db.rollback()
         raise HTTPException(422, f"Import failed: {e}")
     scan.findings_created = created

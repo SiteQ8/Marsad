@@ -2,12 +2,12 @@
 Domain model for Marsad.
 
 Entities:
-  User          — an operator with a role (admin / analyst / viewer)
-  Asset         — a tracked host, application, service or device
-  Vulnerability — a catalog entry (a CVE / plugin), scored once with CVSS
-  Finding       — a Vulnerability observed on a specific Asset (the unit of work)
-  Comment       — remediation notes / audit trail on a Finding
-  ScanImport    — a record of an ingested scanner file
+  User: an operator with a role (admin / analyst / viewer)
+  Asset: a tracked host, application, service or device
+  Vulnerability: a catalog entry (a CVE / plugin), scored once with CVSS
+  Finding: a Vulnerability observed on a specific Asset (the unit of work)
+  Comment: remediation notes / audit trail on a Finding
+  ScanImport: a record of an ingested scanner file
 """
 from __future__ import annotations
 import datetime as dt
@@ -87,7 +87,7 @@ class Vulnerability(Base):
 
 
 class Finding(Base):
-    """A vulnerability instance on an asset — the atomic unit of remediation work."""
+    """A vulnerability instance on an asset: the atomic unit of remediation work."""
     __tablename__ = "findings"
     id = Column(Integer, primary_key=True)
     asset_id = Column(Integer, ForeignKey("assets.id"), nullable=False, index=True)
@@ -98,7 +98,7 @@ class Finding(Base):
     detail = Column(Text, default="")
     assigned_to = Column(String(128))
 
-    # Composite risk score: CVSS weighted by asset criticality & exposure (0–100).
+    # Composite risk score: CVSS weighted by asset criticality & exposure (0-100).
     risk_score = Column(Float, default=0.0, index=True)
 
     first_seen = Column(DateTime, default=utcnow)

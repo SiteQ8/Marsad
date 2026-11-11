@@ -1,4 +1,4 @@
-/* Marsad SPA controller — login, routing, and the four views. Vanilla JS. */
+/* Marsad SPA controller: login, routing, and the four views. Vanilla JS. */
 (function () {
   const $ = s => document.querySelector(s);
   const $$ = s => document.querySelectorAll(s);

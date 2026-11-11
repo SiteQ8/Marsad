@@ -1,4 +1,4 @@
-"""Pydantic v2 schemas — the API contract."""
+"""Pydantic v2 schemas: the API contract."""
 from __future__ import annotations
 import datetime as dt
 from typing import Optional
